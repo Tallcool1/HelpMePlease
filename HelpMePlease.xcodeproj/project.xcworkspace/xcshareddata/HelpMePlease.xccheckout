@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3757A867-C489-4FDB-992E-6C455FD3837B</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</key>
+		<string>https://github.com/ioscourse/FindMe.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</key>
+		<string>FindMe/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ioscourse/FindMe.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FindMe</string>
+		</dict>
+	</array>
+</dict>
+</plist>
