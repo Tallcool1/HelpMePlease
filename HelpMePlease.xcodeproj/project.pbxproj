@@ -16,7 +16,6 @@
 		36C99B361ACB008F00D2443E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C99B351ACB008F00D2443E /* Images.xcassets */; };
 		36C99B391ACB008F00D2443E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36C99B371ACB008F00D2443E /* LaunchScreen.xib */; };
 		36C99B451ACB008F00D2443E /* HelpMePleaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C99B441ACB008F00D2443E /* HelpMePleaseTests.swift */; };
-		36C99B4F1ACB00C600D2443E /* FindMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C99B4E1ACB00C600D2443E /* FindMeViewController.swift */; };
 		36C99B511ACB026700D2443E /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C99B501ACB026700D2443E /* MapManager.swift */; };
 		36C99B591ACB069E00D2443E /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C99B531ACB069E00D2443E /* Bolts.framework */; };
 		36C99B5A1ACB069E00D2443E /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C99B541ACB069E00D2443E /* Parse.framework */; };
@@ -40,6 +39,7 @@
 		36C99B7B1ACB1BB400D2443E /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C99B7A1ACB1BB400D2443E /* ProfileTableViewController.swift */; };
 		36C99B7D1ACB1C9F00D2443E /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C99B7C1ACB1C9F00D2443E /* Contacts.swift */; };
 		36C99B7F1ACB268E00D2443E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C99B7E1ACB268E00D2443E /* HomeViewController.swift */; };
+		36CC63E61AD3A9D500581898 /* FindMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CC63E51AD3A9D500581898 /* FindMeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,6 @@
 		36C99B3E1ACB008F00D2443E /* HelpMePleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelpMePleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36C99B431ACB008F00D2443E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36C99B441ACB008F00D2443E /* HelpMePleaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpMePleaseTests.swift; sourceTree = "<group>"; };
-		36C99B4E1ACB00C600D2443E /* FindMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindMeViewController.swift; path = ../../Documents/apps/FindMe/FindMeViewController.swift; sourceTree = "<group>"; };
 		36C99B501ACB026700D2443E /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		36C99B531ACB069E00D2443E /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		36C99B541ACB069E00D2443E /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		36C99B7A1ACB1BB400D2443E /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		36C99B7C1ACB1C9F00D2443E /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		36C99B7E1ACB268E00D2443E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		36CC63E51AD3A9D500581898 /* FindMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindMeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +131,7 @@
 		36C99B1B1ACB008F00D2443E = {
 			isa = PBXGroup;
 			children = (
+				36CC63E51AD3A9D500581898 /* FindMeViewController.swift */,
 				365C2B0C1AD0CDB400870022 /* NavViewController.swift */,
 				36C99B7E1ACB268E00D2443E /* HomeViewController.swift */,
 				36C99B7A1ACB1BB400D2443E /* ProfileTableViewController.swift */,
@@ -149,7 +150,6 @@
 				36C99B601ACB06F200D2443E /* bridgefile.m */,
 				36C99B521ACB069E00D2443E /* parse-library-1.7.0 */,
 				36C99B501ACB026700D2443E /* MapManager.swift */,
-				36C99B4E1ACB00C600D2443E /* FindMeViewController.swift */,
 				36C99B261ACB008F00D2443E /* HelpMePlease */,
 				36C99B411ACB008F00D2443E /* HelpMePleaseTests */,
 				36C99B251ACB008F00D2443E /* Products */,
@@ -331,7 +331,7 @@
 				36C99B611ACB06F200D2443E /* bridgefile.m in Sources */,
 				36C99B791ACB193200D2443E /* ProfileViewController.swift in Sources */,
 				365C2B0D1AD0CDB400870022 /* NavViewController.swift in Sources */,
-				36C99B4F1ACB00C600D2443E /* FindMeViewController.swift in Sources */,
+				36CC63E61AD3A9D500581898 /* FindMeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +482,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "HelpMePlease-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

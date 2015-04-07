@@ -1,73 +1,53 @@
 //
-//  DetailViewController.swift
-//  HelpMePlease
+//  FindMeViewController.swift
+//  FindMe
 //
 //  Created by Charles Konkol on 3/31/15.
 //  Copyright (c) 2015 Rock Valley College. All rights reserved.
 //
+import UIKit
 import MapKit
 import CoreLocation
-import UIKit
 
-class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelegate,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate{
-   
-    @IBAction func btnBack(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(false, completion: nil)
-
-    }
-    
-    
-    
-    
-    @IBOutlet weak var maos: MKMapView!
-    
+class FindMeViewController: UIViewController,UITextFieldDelegate,MKMapViewDelegate,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate{
     let locationManager = CLLocationManager()
-    var mapManager = MapManager()
-    var tableData = NSArray()
+ var mapManager = MapManager()
+     var tableData = NSArray()
     var longe:Double=0.0
     var late:Double=0.0
     var IsMap=true
-    @IBOutlet var tableview:UITableView? = UITableView()
-    @IBOutlet var maps:MKMapView? = MKMapView()
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    var detailItem: AnyObject? {
-        didSet {
-            // Update the view.
-            self.configureView()
-        }
-    }
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.valueForKey("timeStamp")!.description
-            }
-        }
-    }
-
-    override func viewDidLoad() {
-        IsMap=true
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-         self.maps?.delegate = self
-        
-        //IsMap=true
+    @IBAction func btnRefresh(sender: UIBarButtonItem) {
+         //IsMap=true
         loadLocal()
         //var location = self.mapView?.userLocation
-        getDirectionsUsingApple()
-//        self.configureView()
-//       loadLocal()
-//        //var location = self.mapView?.userLocation
-//        getDirectionsUsingApple()
+         getDirectionsUsingApple()
+        //var from = location?.coordinate
     }
+ 
+    @IBOutlet var tableview:UITableView? = UITableView()
+      @IBOutlet var maps:MKMapView? = MKMapView()
+   
+    @IBOutlet weak var yourname: UILabel!
+    
+    @IBOutlet weak var yourlocation: UILabel!
+    
+   
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBOutlet weak var longitude: UILabel!
+    
+    @IBOutlet weak var alt: UILabel!
+    
+    @IBOutlet weak var speed: UILabel!
+    @IBOutlet weak var lat: UILabel!
+    
+    @IBOutlet weak var userlocation: UILabel!
+    @IBOutlet weak var username: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.maps?.delegate = self
     }
+    
     func loadLocal()
     {
         self.locationManager.requestAlwaysAuthorization()
@@ -81,6 +61,12 @@ class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
             locationManager.startUpdatingLocation()
         }        // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
@@ -88,12 +74,12 @@ class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         var alts = manager.location.altitude
         
         println("locations = \(locValue.latitude) \(locValue.longitude)")
-      //  longitude.text = "\(locValue.longitude)"
-      //  lat.text = "\(locValue.latitude)"
+        longitude.text = "\(locValue.longitude)"
+        lat.text = "\(locValue.latitude)"
         longe = (locValue.longitude)
         late = (locValue.latitude)
-     //   alt.text = "\(alts)"
-     //   speed.text = "\(location.speed)"
+        alt.text = "\(alts)"
+        speed.text = "\(location.speed)"
         
         if IsMap==true{
             IsMap=false
@@ -154,7 +140,7 @@ class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         
         return cell
     }
-    
+
     func getlocations(){
         
         var location = CLLocationCoordinate2D(
@@ -165,18 +151,18 @@ class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
         var span = MKCoordinateSpanMake(0.5, 0.5)
         var region = MKCoordinateRegion(center: location, span: span)
         
-        maos.setRegion(region, animated: true)
-      
-        var annotation = MKPointAnnotation()
-        annotation.setCoordinate(location)
+       // maps.setRegion(region, animated: true)
+        
+       var annotation = MKPointAnnotation()
+       annotation.setCoordinate(location)
         annotation.title = "Help"
         annotation.subtitle = "Me"
         
-        // maps.addAnnotation(annotation)
+      // maps.addAnnotation(annotation)
     }
     func getDirectionsUsingApple() {
         
-        var destination = Ssendlocation // sendlocation
+        var destination =  userlocation?.text
         mapManager.directionsFromCurrentLocation(to: destination!) { (route, directionInformation, boundingRegion, error) -> () in
             
             if (error? != nil) {
@@ -237,4 +223,3 @@ class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelega
 
 
 }
-

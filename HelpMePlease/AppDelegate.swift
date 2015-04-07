@@ -13,11 +13,17 @@ import UIKit
 import Parse
 import ParseUI
 
-var email: String?
-var phone: String?
-var fname: String?
-var lname: String?
-var sendlocation: String?
+var ParseID: String!
+var Remail: String!
+var Rphone: String!
+var Rfname: String!
+var Rlname: String!
+var Rsendlocation: String!
+var Semail: String!
+var Sphone: String!
+var Sfname: String!
+var Slname: String!
+var Ssendlocation: String!
 var timer = NSTimer()
 var counter = 0
 var accepted = 0
@@ -35,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //controller.managedObjectContext = self.managedObjectContext
         Parse.setApplicationId("d65C0OVutu5oLpZgEveDNJcsbdjUHmqBXXD83PZz", clientKey:"q5ksYJkbThLossEqnwv687LCRvv9YDcqvH4bhNhG")
         
-             
+            
        
         return true
     }

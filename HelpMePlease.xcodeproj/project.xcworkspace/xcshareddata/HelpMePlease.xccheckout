@@ -6,31 +6,35 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>3757A867-C489-4FDB-992E-6C455FD3837B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelpMePlease</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</key>
-		<string>https://github.com/ioscourse/FindMe.git</string>
+		<key>9BDF257BA58F89FCE3AEEFB635836999B15B4B37</key>
+		<string>https://github.com/ioscourse/HelpMePlease.git</string>
 	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HelpMePlease.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</key>
-		<string>FindMe/</string>
+		<key>9BDF257BA58F89FCE3AEEFB635836999B15B4B37</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ioscourse/FindMe.git</string>
+	<string>https://github.com/ioscourse/HelpMePlease.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</string>
+	<string>9BDF257BA58F89FCE3AEEFB635836999B15B4B37</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BDB3791B3B8114353D68245C71AE6FA69EB76EFD</string>
+			<string>9BDF257BA58F89FCE3AEEFB635836999B15B4B37</string>
 			<key>IDESourceControlWCCName</key>
-			<string>FindMe</string>
+			<string>HelpMePlease</string>
 		</dict>
 	</array>
 </dict>

@@ -15,24 +15,70 @@ import CoreData
 class ProfileViewController: UIViewController, CLLocationManagerDelegate{
     //var manager:CLLocationManager!
     var IsMe:Bool!
+ 
      let locationManager = CLLocationManager()
     
     var MyLocation:String!
     @IBOutlet weak var txtfname: UITextField!
     
     @IBOutlet weak var btnYes: UISwitch!
-    
+    let managedObjectContext =
+    (UIApplication.sharedApplication().delegate
+        as AppDelegate).managedObjectContext
+    //2) Add variable contactdb (used from UITableView
+    var contactdb:NSManagedObject!
     
     @IBAction func btnSendForHelp(sender: UIButton) {
+        
         var object = PFObject(className: "HelpLogs")
-        object.addObject(txtfname.text, forKey: "firstname")
-        object.addObject(txtlname.text, forKey: "lastname")
-        object.addObject(txtemail.text, forKey: "email")
-        object.addObject(txtphone.text, forKey: "phone")
-        object.addObject("sender", forKey: "type")
-        object.addObject(MyLocation, forKey: "location")
+        
+        object.setObject(Rfname, forKey: "Sfirstname")
+        
+        object.setObject(Rlname, forKey: "Slastname")
+        
+        object.setObject(Remail, forKey: "Semail")
+        
+        object.setObject(Rphone, forKey: "Sphone")
+        
+        object.setObject(txtfname.text, forKey: "Rfirstname")
+        
+        object.setObject(txtlname.text, forKey: "Rlastname")
+        
+        object.setObject(txtemail.text, forKey: "Remail")
+        
+        object.setObject(txtphone.text, forKey: "Rphone")
+        
+        object.setObject("request", forKey: "type")
+        
+        object.setObject(MyLocation, forKey: "Slocation")
+        
+        object.setObject("None", forKey: "Rlocation")
+        
+        object.setObject("None", forKey: "ID")
         
         object.save()
+    
+        ParseID = object.objectId
+        
+        //update
+        println("ObjectID: \(ParseID)")
+        var query = PFQuery(className:"HelpLogs")
+        query.getObjectInBackgroundWithId(ParseID) {
+            (HelpStatus: PFObject!, error: NSError!) -> Void in
+            if error != nil {
+                println("Error: \(error)")
+            } else {
+                HelpStatus["ID"] = ParseID
+                HelpStatus.saveInBackground()
+                println("Success")
+            }
+        }
+
+          self.txtmsg.text = "Waiting for Help"
+        
+        //  loadhome()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target:self, selector: Selector("checkforhelp"), userInfo: nil, repeats: true)
     }
     
     @IBAction func btnYes(sender: UISwitch) {
@@ -41,10 +87,48 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate{
         IsMe=true
         }
     }
+    func checkforhelp()
+    {
+  
+        var helplogemail = PFQuery(className:"HelpLogs")
+        helplogemail.whereKey("Remail", equalTo:Remail)
+        
+        
+        var helplogstatus = PFQuery(className:"HelpLogs")
+        helplogstatus.whereKey("type", equalTo:"request")
+        
+        // empty string array
+        var query = PFQuery.orQueryWithSubqueries([helplogemail, helplogstatus])
+        query.findObjectsInBackgroundWithBlock {
+            (results: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                println("Successfully retrieved \(results.count) results")
+                
+                for FieldObjects in results {
+                  self.txtmsg.text = FieldObjects.objectForKey("type") as String
+                }
+                
+            }
+           
+        }
+    }
     
     @IBAction func btnHelp(sender: UIButton) {
-        
-
+        //update
+        println("ObjectID: \(ParseID)")
+        var query = PFQuery(className:"HelpLogs")
+        query.getObjectInBackgroundWithId("\(ParseID)") {
+            (HelpStatus: PFObject!, error: NSError!) -> Void in
+            if error != nil {
+                println("Error: \(error)")
+            } else {
+                HelpStatus["type"] = "complete"
+                HelpStatus.saveInBackground()
+                println("Success")
+            }
+        }
+        self.txtmsg.text = "Completed"
+        timer.invalidate()
 
     }
     
@@ -162,18 +246,13 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate{
     }
        @IBOutlet weak var btnSave: UIButton!
     
-    let managedObjectContext =
-    (UIApplication.sharedApplication().delegate
-        as AppDelegate).managedObjectContext
-    //2) Add variable contactdb (used from UITableView
-    var contactdb:NSManagedObject!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         getlocation()
-          MyLocation = ""
+        MyLocation = ""
         btnYes.setOn(false, animated: true)
-         IsMe=false
+        IsMe=false
         if (contactdb != nil)
         {
             var loadSwitch:Bool
@@ -191,11 +270,11 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate{
                     if let userFNameNotNull = defaults.objectForKey("firstname") as? String {
                         if userFNameNotNull==txtfname.text
                         {
-                             btnYes.setOn(true, animated: true)
+                            btnYes.setOn(true, animated: true)
                         }
                         
                     }
-                
+                    
                 }
                 
                 
@@ -203,6 +282,10 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate{
             
         }
 
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
