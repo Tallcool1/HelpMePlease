@@ -11,13 +11,14 @@ import UIKit
 
 class DetailViewController: UIViewController,UITextFieldDelegate,MKMapViewDelegate,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate{
    
+   
     @IBAction func btnBack(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(false, completion: nil)
 
     }
     
     
-    
+
     
     @IBOutlet weak var maos: MKMapView!
     
